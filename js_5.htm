@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no,initial-scale=1.0">
+<title>JS 5</title>
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+ <script>
+        function greet() {
+            var greeting;
+            var mydate=new Date;
+            var myhour=mydate.getHours();
+            if(myhour<12){
+            greeting="Good morning";       
+            }else if(myhour>=12 && myhour<18){
+               greeting="Good afternoon";
+            }else {
+               greeting="Good evening";
+            }
+           return greeting; 
+        }
+    
+    window.onload=function(){
+       document.getElementById("welcome").innerHTML="<h1>"+greet()+"</h1>"; 
+    }
+    
+        
+</script>
+</head>
+
+<body>
+<header id="welcome"></header>
+   
+</body>
+</html>

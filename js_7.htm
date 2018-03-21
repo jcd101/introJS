@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no,initial-scale=1.0">
+<title>Untitled Document</title>
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<style>
+    body{
+       margin: 0;
+        background: #000;
+        
+    }
+    #clock{
+      color: lime;
+      font-size: 100px;
+        font-family: arial;
+      text-align: center;
+        
+        
+        
+        
+    }
+    
+    
+</style>  
+    
+<script>
+    window.onload=function(){
+        var clock=document.getElementById("clock");
+/* multiline coment
+*/
+ //Builds the clock       
+        function telltime(){
+            var mydate=new Date,
+                myhour = mydate.getHours(),
+                mymin=mydate.getMinutes(),
+                mysec=mydate.getSeconds(),
+                mymill=mydate.getMilliseconds();
+            return addZero(myhour,false) + ":" + addZero(mymin,false) + ":" + addZero(mysec,false) +":" +addZero(mymill,true);
+            
+        }
+        function addZero (anynumber,bool){
+            if(!bool){
+               if (anynumber < 10){
+                return "0" + anynumber;
+                }else{
+                    return anynumber;
+                    
+                }
+            }
+            else{
+              if (anynumber < 10){
+                return "00" + anynumber;
+                }  else if(anynumber>10 && anynumber<100){
+                     return "0" + anynumber;      
+                }
+                else{
+                    return anynumber;
+                    
+                }
+            }
+            
+            
+        }
+         //alert(addZero(9));
+           console.log(telltime());
+           
+         clock.innerHTML="<h1>"+telltime()+"</h1>"
+        setInterval(function(){
+            clock.innerHTML="<h1>"+telltime()+"</h1>"
+        },1);
+    }
+
+    </script>
+</head>
+
+<body>
+    <header id="clock"></header>
+</body>
+</html>

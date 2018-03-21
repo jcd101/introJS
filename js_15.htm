@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no,initial-scale=1.0">
+<title>Untitled Document</title>
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<style>
+    #mycanvas{
+        display: block;
+        margin: auto;
+        border: dotted 1px #000;
+        
+    }
+    
+    
+    
+    
+</style>
+<script>
+    window.onload=function(){
+        var canvas = document.getElementById("mycanvas");
+        var pen=canvas.getContext("2d");
+        var cw=canvas.width;
+        var ch=canvas.height;
+        var ufo = new Image;
+        ufo.src="images/aliens.png";
+        ufo.onload=function(){
+            draw();
+        }
+        draw();
+        function draw(){
+            pen.beginPath();
+            pen.lineWidth=10;
+            pen.fillStyle="blue";
+            pen.moveTo(10,ch-10);
+            pen.lineTo(cw/2,10);
+            pen.lineTo(cw-10,ch-10); 
+            pen.lineTo(10,ch-10);
+            pen.closePath();
+            pen.stroke();
+            pen.fill();
+            pen.fillStyle="yellow";
+            pen.strokeRect(cw/2-50,ch/2-50,100,100);
+            pen.fillRect(cw/2-50,ch/2-50,100,100);
+            pen.drawImage(ufo,100,200);
+            pen.clearRect (0,20,cw,50)
+        }
+    }
+    
+    </script>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="600" height="400">Not supported in this browser</canvas>
+</body>
+</html>

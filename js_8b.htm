@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no,initial-scale=1.0">
+<title>Untitled Document</title>
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<style>
+ body {
+     margin:0px;
+    background-image: url(images/space.jpg);
+    background-size: cover;
+     overflow:hidden;
+    }
+    #ufo {
+       width: 279px;
+        height: 129px;
+        background-image: url(images/aliens.png);
+       position: absolute;
+        top:300px;
+    }
+    
+    #planet  {
+        position:absolute;
+        width: 1000px;
+        height: 500px;
+        background-image: url(images/saturn.png);
+        background-size: cover;
+        left:280px;
+        top: 190px;
+        z-index: 2;
+        
+    }
+    
+    
+</style>
+<script>
+    var win_width=window.innerWidth;
+    var goleft=false;
+    window.onload=function(){
+       var ufo=document.getElementById("ufo"),
+           win_width=window.innerWidth,
+           xpos=-93;
+        
+//makes it fly back in from the left        
+        
+        function fly(){
+            if(!goleft){
+                xpos += 10 ;
+                ufo.style.zIndex=1;
+            }else{
+                xpos -= 10 ;
+                ufo.style.zIndex=3;
+            }
+           
+            if(xpos >=win_width || xpos < -300){
+               //xpos = -279;
+                goleft=!goleft;
+               }
+            ufo.style.left = xpos + "px";
+           } 
+        
+        
+ //rate of animation
+        
+            setInterval(function(){
+               fly(); 
+            },30);
+    }
+window.onresize=function(){
+    win_width=window.innerWidth;
+    console.log(win_width);
+}
+    
+    </script>
+</head>
+
+<body>
+    <div id="ufo"></div>
+    <div id="planet"></div>
+</body>
+</html>
